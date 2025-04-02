@@ -21,6 +21,7 @@
   "homepage": "https://github.com/krishnamathi88/eCommerceLite#readme",
   "dependencies": {
     "express": "^5.1.0",
+    "helmet": "^8.1.0",
     "path-to-regexp": "^6.2.1"
   }
 }
