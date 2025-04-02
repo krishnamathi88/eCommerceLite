@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/${input:programFile}"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "pickString",
+      "id": "programFile",
+      "description": "Select the file to debug",
+      "options": [
+        "cb.html",
+        "fetch.js",
+        "offers.xlsx",
+        "products.json",
+        "products.xlsx"
+      ]
+    }
+  ]
+}
