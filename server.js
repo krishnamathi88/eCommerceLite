@@ -19,7 +19,7 @@ app.get('/api/theme', (req, res) => {
 });
 
 // SPA catch-all route
-app.get('*', (req, res) => {
+app.get('/:path(*)', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'cb.html'));
 });
 
