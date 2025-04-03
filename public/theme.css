@@ -1,0 +1,34 @@
+:root {
+  --primary-blue: #1976D2;
+  --light-blue: #64B5F6;
+  --background-blue: #E3F2FD;
+}
+
+body {
+  background-color: var(--background-blue);
+}
+
+#chat-container {
+  border: 2px solid var(--primary-blue);
+  box-shadow: 0 4px 8px rgba(25, 118, 210, 0.2);
+}
+
+.bot {
+  background-color: var(--light-blue);
+  color: white;
+}
+
+.user {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+button, input[type="submit"] {
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background-color: #1565C0;
+}
