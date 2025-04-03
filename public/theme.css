@@ -1,34 +1,107 @@
+/* Blue Theme with Enhanced Contrast */
 :root {
-  --primary-blue: #1976D2;
-  --light-blue: #64B5F6;
-  --background-blue: #E3F2FD;
+  --primary-blue: #1565C0;       /* Slightly darker for better contrast */
+  --light-blue: #42A5F5;         /* Brighter accent blue */
+  --background-blue: #E3F2FD;    /* Light blue background */
+  --text-dark: #212121;          /* Dark gray for text */
+  --text-light: #FFFFFF;         /* White for text on dark backgrounds */
 }
 
+/* Base Styles */
 body {
   background-color: var(--background-blue);
+  color: var(--text-dark);
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
+/* Chat Container */
 #chat-container {
+  background-color: white;
   border: 2px solid var(--primary-blue);
-  box-shadow: 0 4px 8px rgba(25, 118, 210, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.15);
 }
 
+/* Chat Box */
+#chat-box {
+  background-color: white;
+  padding: 15px;
+}
+
+/* Message Bubbles */
+.message {
+  padding: 10px 16px;
+  margin: 10px 0;
+  border-radius: 18px;
+  max-width: 80%;
+  line-height: 1.5;
+  font-size: 15px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  clear: both;
+}
+
+/* Bot Messages */
 .bot {
-  background-color: var(--light-blue);
-  color: white;
-}
-
-.user {
   background-color: var(--primary-blue);
-  color: white;
+  color: var(--text-light);
+  float: left;
+  border-bottom-left-radius: 4px;
 }
 
-button, input[type="submit"] {
+/* User Messages */
+.user {
+  background-color: #0D47A1;     /* Darker blue for user messages */
+  color: var(--text-light);
+  float: right;
+  border-bottom-right-radius: 4px;
+}
+
+/* Input Area */
+#product-search {
+  background-color: white;
+  color: var(--text-dark);
+  border: 2px solid var(--light-blue);
+  padding: 10px;
+  border-radius: 8px;
+  width: calc(100% - 24px);
+}
+
+/* Buttons */
+button {
   background-color: var(--primary-blue);
   color: white;
   border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #1565C0;
+  background-color: #0D47A1;
+}
+
+/* Checkboxes */
+.checkbox-container {
+  background-color: rgba(255,255,255,0.9);
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.checkbox-container label {
+  display: block;
+  margin: 6px 0;
+  color: var(--text-dark);
+}
+
+/* Scrollbar (optional) */
+#chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+#chat-box::-webkit-scrollbar-thumb {
+  background-color: var(--light-blue);
+  border-radius: 4px;
 }
