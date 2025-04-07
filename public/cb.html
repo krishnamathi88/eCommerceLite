@@ -1,16 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TranzOnline Chatbot</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
-    <style>
-        /* Original styles with blue theme enhancements */
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TranzOnline Chatbot</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+<style>
         body {
-            background-color: #E3F2FD; /* Light blue background */
-            color: #0D47A1; /* Dark blue text */
-            font-family: Arial, sans-serif;
+            background-color: #E3F2FD;
+            color: #0D47A1;
+            font-family: 'Segoe UI', Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,105 +18,151 @@
             margin: 0;
         }
         #chat-container {
-            width: 350px;
-            height: 450px;
-            border: 2px solid #1976D2; /* Primary blue border */
-            background-color: #FFFFFF; /* White background */
-            color: #212121; /* Dark text */
-            padding: 10px;
+            width: 400px;
+            height: 500px;
+            border: 2px solid #1976D2;
+            background-color: #FFFFFF;
+            color: #212121;
+            padding: 15px;
             display: flex;
             flex-direction: column;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(25, 118, 210, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(25, 118, 210, 0.15);
         }
         #chat-box {
             flex-grow: 1;
-            border: 1px solid #BBDEFB; /* Light blue border */
-            padding: 10px;
-            overflow-y: scroll;
-            margin-bottom: 10px;
+            border: 1px solid #BBDEFB;
+            padding: 15px;
+            overflow-y: auto;
+            margin-bottom: 15px;
             background-color: #FFFFFF;
-            border-radius: 4px;
+            border-radius: 8px;
         }
         .message {
-            padding: 8px 12px;
-            margin-bottom: 8px;
-            border-radius: 18px;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 20px;
             max-width: 80%;
-            line-height: 1.4;
+            line-height: 1.5;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .bot {
-            background-color: #1976D2; /* Primary blue */
+            background-color: #1976D2;
             color: white;
             border-bottom-left-radius: 4px;
         }
         .user {
-            background-color: #0D47A1; /* Darker blue */
+            background-color: #0D47A1;
             color: white;
             text-align: right;
             border-bottom-right-radius: 4px;
             margin-left: auto;
         }
         .checkbox-container {
-            margin-top: 10px;
-            background-color: #E3F2FD; /* Matching background */
-            padding: 8px;
+            margin-top: 15px;
+            background-color: #E3F2FD;
+            padding: 12px;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .checkbox-container label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 5px;
             border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        .checkbox-container label:hover {
+            background-color: #BBDEFB;
         }
         input[type="text"] {
-            border: 1px solid #64B5F6; /* Light blue border */
-            padding: 8px;
-            border-radius: 4px;
+            border: 1px solid #64B5F6;
+            padding: 10px;
+            border-radius: 6px;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 14px;
         }
         button {
-            background-color: #1976D2; /* Primary blue */
+            background-color: #1976D2;
             color: white;
             border: none;
-            padding: 8px 12px;
-            margin-top: 8px;
-            border-radius: 4px;
+            padding: 10px 15px;
+            border-radius: 6px;
             cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
         }
         button:hover {
-            background-color: #1565C0; /* Slightly darker on hover */
+            background-color: #1565C0;
+        }
+        #search-container {
+            display: flex;
+            gap: 10px;
+        }
+        #search-button {
+            flex-shrink: 0;
+        }
+        .welcome-title {
+            text-align: center;
+            color: #1976D2;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #E3F2FD;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
-    <!-- Keep all original HTML content exactly as it was -->
-    <div id="chat-container">
-        <div id="chat-box"></div>
-        <div class="checkbox-container">
-            <label>
-                <input type="checkbox" id="option1"> Call us
-            </label><br>
-            <label>
-                <input type="checkbox" id="option2"> WhatsApp Chat
-            </label><br>
-            <label>
-                <input type="checkbox" id="option3"> Visit Website
-            </label><br>
-            <label>
-                <input type="checkbox" id="option31"> Sign In
-            </label><br>
-            <label>
-                <input type="checkbox" id="option32"> Sign Up
-            </label><br>
-            <label>
-                <input type="checkbox" id="option33"> Check the product availability
-            </label><br>
-            <label>
-                <input type="checkbox" id="option34"> Price
-            </label><br>
-            <label>
-                <input type="checkbox" id="option35"> Offers Today
+<div id="chat-container">
+<div class="welcome-title">Welcome to TranzLite</div>
+<div id="chat-box"></div>
+<div class="checkbox-container">
+<label>
+<input id="option1" type="checkbox"/> Call us
             </label>
-        </div>
-        <input type="text" id="product-search" placeholder="Enter product name" />
-        <button id="search-button">Search</button>
-    </div>
+<label>
+<input id="option2" type="checkbox"/> WhatsApp Chat
+            </label>
+<label>
+<input id="option3" type="checkbox"/> Visit Website
+            </label>
 
-    <!-- Keep the original JavaScript file reference -->
-    <script src="fetch.js"></script>
+
+<label>
+<input id="option35" type="checkbox"/> Today's Offers
+            </label>
+</div>
+<div id="search-container">
+<input id="product-search" placeholder="Enter product name" type="text"/>
+<button id="search-button">Search</button>
+</div>
+</div>
+<script src="fetch.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const callCheckbox = document.getElementById("option1");
+    const websiteCheckbox = document.getElementById("option3");
+
+    callCheckbox.addEventListener("change", function() {
+        if (callCheckbox.checked) {
+            window.location.href = "tel:+919150054843";
+        }
+    });
+
+    websiteCheckbox.addEventListener("change", function() {
+        if (websiteCheckbox.checked) {
+            window.location.href = "https://tranzonline.com";
+        }
+    });
+});
+</script>
 </body>
 </html>
