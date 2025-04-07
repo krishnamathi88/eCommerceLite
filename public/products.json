@@ -1,6 +1,18 @@
 [
-  { "Product": "narasus", "Price": "$100", "Availability": "In Stock" },
-  { "Product": "nescafe", "Price": "$150", "Availability": "Low Stock" },
-  {"Product": "narasus new", "Price": "$100", "Availability": "20"},
-  {"Product": "nescafe gold", "Price": "$150", "Availability": "Low Stock"}
+    {
+        "name": "narasus",
+        "price": 999.99,
+        "stock": 15
+    },
+    {
+        "name": "narasus new",
+        "price": 699.99,
+        "stock": 25
+    },
+    {
+        "name": "Wireless Headphones",
+        "price": 149.99,
+        "stock": 0
+    }
+    
 ]
